@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
 
 const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs', 'Rénovation']
+const PROJECTS_PER_PAGE = 9
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('Tous')
@@ -14,11 +15,20 @@ const Projects = () => {
     setPage(1) // Reset to page 1 when filtering
   }
 
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const filteredProjects = activeCategory === 'Tous'
     ? projectsData
     : projectsData.filter(p => p.category === activeCategory)
 
-  // In a real app we'd slice filteredProjects based on page size.
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE)
+  const startIndex = (page - 1) * PROJECTS_PER_PAGE
+  const endIndex = startIndex + PROJECTS_PER_PAGE
+  const currentProjects = filteredProjects.slice(startIndex, endIndex)
   // For this mock, we'll just show all filtered results or a subset if list is huge.
   // The design shows 9 items (3x3), which matches our mock data length perfectly.
 
@@ -86,7 +96,7 @@ const Projects = () => {
 
         {/* Grid */}
         <Grid container spacing={4}>
-          {filteredProjects.map((project) => (
+          {currentProjects.map((project) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.id}>
               <Link to={`/projets/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Box
@@ -138,9 +148,9 @@ const Projects = () => {
         {/* Pagination */}
         <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
           <Pagination
-            count={8} // Mock page count
+            count={totalPages}
             page={page}
-            onChange={(_, p) => setPage(p)}
+            onChange={handlePageChange}
             shape="rounded"
             color="primary"
             sx={{

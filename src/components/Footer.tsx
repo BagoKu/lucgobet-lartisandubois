@@ -42,7 +42,8 @@ const Footer = () => {
                             />
                         </Box>
                         <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 384 }}>
-                            Transformer le bois en pièces uniques qui racontent une histoire. Votre projet, notre passion.
+                            <p>Menuiserie Bois et dérivés. Renovation, fabrication, pose.</p>
+                            Dressing, placard, cuisine, parquet, terrasse, garde corps, palissade, volets, porte, portail.
                         </Typography>
                     </Grid>
 
@@ -79,7 +80,7 @@ const Footer = () => {
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <PhoneIcon sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                                 <Link
-                                    href="tel:+33612345678"
+                                    href="tel:0661397918"
                                     underline="none"
                                     color="text.secondary"
                                     sx={{
@@ -87,13 +88,13 @@ const Footer = () => {
                                         '&:hover': { color: 'primary.main' },
                                     }}
                                 >
-                                    06 12 34 56 78
+                                    06.61.39.79.18
                                 </Link>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <EmailIcon sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                                 <Link
-                                    href="mailto:contact@menuisier.com"
+                                    href="mailto:lucgobet.lartisandubois@gmail.com"
                                     underline="none"
                                     color="text.secondary"
                                     sx={{
@@ -101,13 +102,13 @@ const Footer = () => {
                                         '&:hover': { color: 'primary.main' },
                                     }}
                                 >
-                                    contact@menuisier.com
+                                    lucgobet.lartisandubois@gmail.com
                                 </Link>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <LocationOnIcon sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                                 <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem' }}>
-                                    Paris, France
+                                    28330 LA BAZOCHE-GOUET
                                 </Typography>
                             </Box>
                         </Stack>
@@ -124,7 +125,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography variant="caption" color="text.secondary">
-                        © 2024 Artisan Menuisier. Tous droits réservés.
+                        © 2024 Lucgobet L'Artisan du Bois. Tous droits réservés.
                     </Typography>
                 </Box>
             </Container>

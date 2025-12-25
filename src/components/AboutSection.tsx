@@ -42,8 +42,17 @@ const AboutSection = () => {
                                     lineHeight: 1.625, // leading-relaxed
                                 }}
                             >
-                                Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. Je suis à votre disposition pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur.
-                            </Typography>
+
+                                <p>Menuisier depuis 2000 et après avoir travaillé dans diverses menuiserie je me suis mis à mon compte en 2022 dans le perche,afin de proposer mes  propres réalisations aux clients.</p>
+
+
+                                <p>Je réalise  vos ouvrages en bois que ce soit pour l'intérieur de votre habitation ou à l'extérieur de celle-ci.
+                                    Je m'entretiens personnellement avec chacun de mes clients afin de voir leurs besoins, leurs idées et d'étudier leurs demandes.</p>
+
+
+                                <p>Je vous propose de découvrir sur ce site les différentes ouvrage en bois que ce soit pour l'intérieur de votre habitation ou à l'extérieur de celle-ci
+                                    N'y voyez pas là un catalogue mais plutôt une source d'inspiration.
+                                    Cela vous donnera peut-être des idées des envies de projet et si vous avez besoin de concrétiser vos souhaits n'hésitez pas à me contacter.</p>                          </Typography>
                         </Box>
                     </Grid>
                 </Grid>

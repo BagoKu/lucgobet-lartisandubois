@@ -46,8 +46,7 @@ const Hero = () => {
                                 fontWeight: 400,
                             }}
                         >
-                            <p>Menuiserie Bois et dérivés. Renovation, fabrication, pose.</p>
-                            Dressing, placard, cuisine, parquet, terrasse, garde corps, palissade, volets, porte, portail.
+                            Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. Je suis à votre disposition pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur.
                         </Typography>
                     </Box>
                     <Button
