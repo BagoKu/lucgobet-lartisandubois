@@ -52,19 +52,6 @@ const Header = () => {
               color="primary"
               component={RouterLink}
               to="/contact"
-              sx={{
-                fontWeight: 700,
-                fontSize: '0.875rem',
-                letterSpacing: '0.015em',
-                '&:focus': {
-                  color: 'white',
-                },
-                '&:hover': {
-                  bgcolor: 'primary.dark',
-                  boxShadow: 'none',
-                  color: 'white',
-                },
-              }}
             >
               Contact
             </Button>

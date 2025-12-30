@@ -18,7 +18,7 @@ const Hero = () => {
                         minHeight: 520,
                         p: { xs: 3, md: 6 }, // p-6 md:p-12
                         gap: 3,
-                        borderRadius: 3, // rounded-xl (12px = 0.75rem * 16 = 12px, in theme shape is 16 which is close to xl)
+                        borderRadius: 3, // theme shape is 4px * 3 = 12px
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtensqzEhGZjAWmEw86IssvClne1WWLemSaxKbVHWNyEynD_zobxtgkVS4QA65Tj4cxUaGyONcfrd_gTsJiLLhDFCttwsgGmBTV9Q26bUXHnefHoWtHDQ1dvxyaMNdCjMaJLp2eDYQq-v8WmLEOwqZcvlMR_MaieJlEiaMKSla_b9nkDffwkyiajN4naa5XeNpV2V6_US1dTf_Xb6PXANoeWc7gVHuxWMXCE5QLY_G0asspYkd-2HIf243RcuPcRLwoPDZh49nfmA")`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -56,17 +56,6 @@ const Hero = () => {
                         component={RouterLink}
                         to="/projects"
                         size="large"
-                        sx={{
-                            height: 48,
-                            px: 3,
-                            fontSize: '1rem',
-                            fontWeight: 700,
-                            '&:hover': {
-                                bgcolor: 'primary.dark',
-                                boxShadow: 'none',
-                                color: 'white',
-                            },
-                        }}
                     >
                         Découvrir mes réalisations
                     </Button>

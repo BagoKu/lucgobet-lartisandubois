@@ -4,6 +4,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#d47311',
+      dark: '#a65a0d',
       contrastText: '#fff',
     },
     background: {
@@ -38,14 +39,39 @@ const theme = createTheme({
           borderRadius: '0.5rem', // rounded-lg
           padding: '12px 24px',
           boxShadow: 'none',
+          textTransform: 'none',
+          fontWeight: 700,
           '&:hover': {
             boxShadow: 'none',
           },
         },
         containedPrimary: {
           color: '#fff',
+          '&:hover': {
+            backgroundColor: '#a65a0d', // This should be primary.dark (d47311 -> darken) or explicitly set
+            // Let's make sure it's consistent.
+            // If primary main is #d47311, a good dark is #a65a0d or similar
+          },
+        },
+        outlined: {
+          borderColor: 'rgba(0, 0, 0, 0.12)',
+          color: '#181411',
+          '&:hover': {
+            borderColor: '#181411',
+            backgroundColor: 'rgba(0, 0, 0, 0.04)',
+            color: '#181411',
+          },
         },
       },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+          boxShadow: 'none',
+          border: '1px solid rgba(0, 0, 0, 0.08)',
+        }
+      }
     },
     MuiAppBar: {
       styleOverrides: {

@@ -40,7 +40,7 @@ const ProjectsSection = () => {
                                 >
                                     <Box
                                         sx={{
-                                            borderRadius: 3,
+                                            borderRadius: 3, // theme shape is 4px * 3 = 12px
                                             overflow: 'hidden',
                                         }}
                                     >
@@ -76,17 +76,6 @@ const ProjectsSection = () => {
                         variant="contained"
                         color="primary"
                         size="large"
-                        sx={{
-                            height: 48,
-                            px: 3,
-                            fontSize: '1rem',
-                            fontWeight: 700,
-                            '&:hover': {
-                                bgcolor: 'primary.dark',
-                                boxShadow: 'none',
-                                color: 'white',
-                            },
-                        }}
                         href="/projects"
                     >
                         Voir toutes nos réalisations

@@ -127,7 +127,7 @@ const ProjectDetail = () => {
                 bgcolor: 'background.paper',
                 borderRadius: 2,
                 p: 4,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                boxShadow: 3, // mapped to theme.shadows
                 border: '1px solid',
                 borderColor: 'divider',
               }}
@@ -168,17 +168,6 @@ const ProjectDetail = () => {
                   color="primary"
                   fullWidth
                   size="large"
-                  sx={{
-                    py: 1.5,
-                    fontWeight: 700,
-                    boxShadow: 'none',
-                    '&:hover': {
-                      bgcolor: 'primary.dark',
-                      boxShadow: 'none',
-                      color: 'white',
-
-                    },
-                  }}
                 >
                   Demander un devis
                 </Button>
@@ -188,17 +177,6 @@ const ProjectDetail = () => {
                   fullWidth
                   size="large"
                   startIcon={<ArrowBackIcon />}
-                  sx={{
-                    py: 1.5,
-                    fontWeight: 600,
-                    color: 'text.primary',
-                    borderColor: 'divider',
-                    '&:hover': {
-                      borderColor: 'text.primary',
-                      color: 'text.primary',
-                      bgcolor: 'action.hover',
-                    },
-                  }}
                 >
                   Retour aux projets
                 </Button>
