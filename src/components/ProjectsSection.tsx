@@ -81,7 +81,13 @@ const ProjectsSection = () => {
                             px: 3,
                             fontSize: '1rem',
                             fontWeight: 700,
+                            '&:hover': {
+                                bgcolor: 'primary.dark',
+                                boxShadow: 'none',
+                                color: 'white',
+                            },
                         }}
+                        href="/projects"
                     >
                         Voir toutes nos réalisations
                     </Button>

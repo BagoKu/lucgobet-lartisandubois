@@ -1,4 +1,5 @@
 import { Box, Button, Container, Typography } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 const Hero = () => {
     return (
@@ -52,12 +53,19 @@ const Hero = () => {
                     <Button
                         variant="contained"
                         color="primary"
+                        component={RouterLink}
+                        to="/projects"
                         size="large"
                         sx={{
                             height: 48,
                             px: 3,
                             fontSize: '1rem',
                             fontWeight: 700,
+                            '&:hover': {
+                                bgcolor: 'primary.dark',
+                                boxShadow: 'none',
+                                color: 'white',
+                            },
                         }}
                     >
                         Découvrir mes réalisations

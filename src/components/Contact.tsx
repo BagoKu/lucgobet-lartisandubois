@@ -28,8 +28,8 @@ const Contact = () => {
       label: 'Identifiants',
       content: (
         <>
-          <strong>SIRET :</strong> 91854921300018<br />
-          <strong>RM :</strong> 918549213RM28
+          SIRET : 91854921300018<br />
+          RM : 918549213RM28
         </>
       ),
     },

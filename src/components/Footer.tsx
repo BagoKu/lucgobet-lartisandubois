@@ -4,14 +4,6 @@ import EmailIcon from '@mui/icons-material/Email'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import logoImage from '../assets/logluc.png'
 
-const LogoIcon = () => (
-    <Box sx={{ width: 24, height: 24, color: 'primary.main', mr: 1.5 }}>
-        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-            <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
-        </svg>
-    </Box>
-)
-
 const Footer = () => {
     return (
         <Box

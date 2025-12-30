@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { Box, Container, Typography, Button, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails, Grid } from '@mui/material'
+import { Box, Container, Typography, Button, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails, Grid, Modal, IconButton } from '@mui/material'
 import { projectsData } from '../data/projects'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import CloseIcon from '@mui/icons-material/Close'
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const project = projectsData.find(p => p.id === Number(id))
 
   if (!project) {
@@ -40,6 +43,7 @@ const ProjectDetail = () => {
           component="img"
           src={project.coverImage}
           alt={project.title}
+          onClick={() => setSelectedImage(project.coverImage)}
           sx={{
             width: '100%',
             maxHeight: { xs: '300px', md: '400px' },
@@ -47,6 +51,11 @@ const ProjectDetail = () => {
             borderRadius: 2,
             mb: 3,
             display: 'block',
+            cursor: 'pointer',
+            transition: 'transform 0.2s',
+            '&:hover': {
+              transform: 'scale(1.02)',
+            },
           }}
         />
 
@@ -90,12 +99,18 @@ const ProjectDetail = () => {
                     component="img"
                     src={image}
                     alt={`${project.title} - Image ${index + 2}`}
+                    onClick={() => setSelectedImage(image)}
                     sx={{
                       width: '100%',
                       borderRadius: 2,
                       display: 'block',
                       aspectRatio: '4/3',
                       objectFit: 'cover',
+                      cursor: 'pointer',
+                      transition: 'transform 0.2s',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      },
                     }}
                   />
                 </Grid>
@@ -105,74 +120,142 @@ const ProjectDetail = () => {
 
           {/* Right Column - Description */}
           <Grid size={{ xs: 12, md: 5 }}>
-            <Accordion
-              defaultExpanded
+            <Box
               sx={{
-                boxShadow: 'none',
+                position: 'sticky',
+                top: 24,
+                bgcolor: 'background.paper',
+                borderRadius: 2,
+                p: 4,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
                 border: '1px solid',
                 borderColor: 'divider',
-                borderRadius: 2,
-                '&:before': { display: 'none' },
-                mb: 2,
               }}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+              <Typography
+                variant="h4"
                 sx={{
-                  fontWeight: 600,
-                  fontSize: '1.125rem',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  mb: 3,
+                  pb: 2,
+                  borderBottom: '2px solid',
+                  borderColor: 'primary.main',
+                  display: 'inline-block',
                 }}
               >
-                Description du projet
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography
-                  variant="body1"
+                À propos du projet
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'text.secondary',
+                  lineHeight: 1.8,
+                  fontSize: '1.05rem',
+                  mb: 4,
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {project.description}
+              </Typography>
+
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Button
+                  component={Link}
+                  to="/contact"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  size="large"
                   sx={{
-                    color: 'text.secondary',
-                    lineHeight: 1.7,
-                    whiteSpace: 'pre-line',
+                    py: 1.5,
+                    fontWeight: 700,
+                    boxShadow: 'none',
+                    '&:hover': {
+                      bgcolor: 'primary.dark',
+                      boxShadow: 'none',
+                      color: 'white',
+
+                    },
                   }}
                 >
-                  {project.description}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+                  Demander un devis
+                </Button>
+                <Button
+                  onClick={() => navigate('/projects')}
+                  variant="outlined"
+                  fullWidth
+                  size="large"
+                  startIcon={<ArrowBackIcon />}
+                  sx={{
+                    py: 1.5,
+                    fontWeight: 600,
+                    color: 'text.primary',
+                    borderColor: 'divider',
+                    '&:hover': {
+                      borderColor: 'text.primary',
+                      color: 'text.primary',
+                      bgcolor: 'action.hover',
+                    },
+                  }}
+                >
+                  Retour aux projets
+                </Button>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
 
-        {/* Action Buttons */}
-        <Box sx={{ mt: 6, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-          <Button
-            variant="outlined"
-            startIcon={<ArrowBackIcon />}
-            onClick={() => navigate('/projects')}
+        {/* Image Modal */}
+        <Modal
+          open={selectedImage !== null}
+          onClose={() => setSelectedImage(null)}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            p: 2,
+          }}
+        >
+          <Box
             sx={{
-              borderColor: 'primary.main',
-              color: 'primary.main',
-              px: 3,
-              py: 1.5,
-              fontWeight: 600,
-              '&:hover': {
-                borderColor: 'primary.dark',
-                bgcolor: 'rgba(212, 115, 17, 0.04)',
-              },
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              outline: 'none',
             }}
           >
-            Retourner aux projets
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{
-              px: 3,
-              py: 1.5,
-              fontWeight: 600,
-            }}
-          >
-            Demander un devis pour votre projet
-          </Button>
-        </Box>
+            <IconButton
+              onClick={() => setSelectedImage(null)}
+              sx={{
+                position: 'absolute',
+                top: -16,
+                right: -16,
+                bgcolor: 'white',
+                '&:hover': {
+                  bgcolor: 'grey.200',
+                },
+                zIndex: 1,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            {selectedImage && (
+              <Box
+                component="img"
+                src={selectedImage}
+                alt="Full size"
+                sx={{
+                  maxWidth: '100%',
+                  maxHeight: '90vh',
+                  objectFit: 'contain',
+                  borderRadius: 2,
+                }}
+              />
+            )}
+          </Box>
+        </Modal>
       </Container>
     </Box>
   )
