@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Typography, Button, Container } from '@mui/material'
+import { AppBar, Toolbar, Box, Button, Container } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 import logoImage from '../assets/logluc.png'
 

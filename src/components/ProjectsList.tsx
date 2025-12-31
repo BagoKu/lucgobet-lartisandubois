@@ -6,7 +6,7 @@ import volets from '../assets/projets/volets.jpeg'
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
+import { Grid } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles'
 
@@ -48,7 +48,7 @@ export const PROJECTS = [
   },
 ]
 
-const CardOverlay = styled(Box)(({ theme }) => ({
+const CardOverlay = styled(Box)(() => ({
   position: 'absolute',
   left: 0,
   right: 0,
@@ -72,7 +72,7 @@ const CardOverlay = styled(Box)(({ theme }) => ({
   width: '100%',
 }));
 
-const CardTitle = styled(Box)(({ theme }) => ({
+const CardTitle = styled(Box)(() => ({
   position: 'absolute',
   top: 0,
   left: 0,

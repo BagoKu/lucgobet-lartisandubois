@@ -13,14 +13,14 @@ const Footer = () => {
                 pt: 10,
                 pb: 8,
                 borderTop: 1,
-                borderColor: (theme) => `rgba(212, 115, 17, 0.2)`, // primary/20
+                borderColor: `rgba(212, 115, 17, 0.2)`, // primary/20
                 backgroundColor: 'background.default',
             }}
         >
             <Container maxWidth="lg">
                 <Grid container spacing={8}>
                     {/* Brand Column */}
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                             <Box
                                 component="img"
@@ -40,7 +40,7 @@ const Footer = () => {
                     </Grid>
 
                     {/* Navigation Column */}
-                    <Grid item xs={12} md={3}>
+                    <Grid size={{ xs: 12, md: 3 }}>
                         <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 600, mb: 2, color: 'text.primary' }}>
                             Navigation
                         </Typography>
@@ -64,7 +64,7 @@ const Footer = () => {
                     </Grid>
 
                     {/* Contact Column */}
-                    <Grid item xs={12} md={3}>
+                    <Grid size={{ xs: 12, md: 3 }}>
                         <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 600, mb: 2, color: 'text.primary' }}>
                             Contact
                         </Typography>
@@ -112,7 +112,7 @@ const Footer = () => {
                         mt: 5,
                         pt: 3,
                         borderTop: 1,
-                        borderColor: (theme) => `rgba(212, 115, 17, 0.2)`,
+                        borderColor: `rgba(212, 115, 17, 0.2)`,
                         textAlign: 'center',
                     }}
                 >

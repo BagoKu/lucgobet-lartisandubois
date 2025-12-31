@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { Box, Container, Typography, Button, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails, Grid, Modal, IconButton } from '@mui/material'
+import { Box, Container, Typography, Button, Breadcrumbs, Grid, Modal, IconButton } from '@mui/material'
 import { projectsData } from '../data/projects'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import CloseIcon from '@mui/icons-material/Close'
 
