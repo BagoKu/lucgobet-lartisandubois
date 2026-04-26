@@ -19,7 +19,7 @@ const Header = () => {
                 src={logoImage}
                 alt="Logo Luc Gobet"
                 sx={{
-                  height: 40,
+                  height: 60,
                   width: 'auto',
                   mr: 1.5,
                   cursor: 'pointer',
