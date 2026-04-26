@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography, Link, Stack } from '@mui/material'
 import PhoneIcon from '@mui/icons-material/Phone'
 import EmailIcon from '@mui/icons-material/Email'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
-import logoImage from '../assets/logluc.png'
+import logoImage from '../assets/Logo-site-luc.jpeg'
 
 const Footer = () => {
     return (
