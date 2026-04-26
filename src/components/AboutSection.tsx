@@ -43,7 +43,7 @@ const AboutSection = () => {
                                 }}
                             >
 
-                                <p>Menuisier depuis 2000 et après avoir travaillé dans diverses menuiserie je me suis mis à mon compte en 2022 dans le perche,afin de proposer mes  propres réalisations aux clients.</p>
+                                <p>Menuisier depuis 2000 et après avoir travaillé dans diverses menuiseries, je me suis mis à mon compte en 2022 dans le perche afin de proposer mes propres réalisations aux clients.</p>
 
 
                                 <p>Je réalise  vos ouvrages en bois que ce soit pour l'intérieur de votre habitation ou à l'extérieur de celle-ci.
