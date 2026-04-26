@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Box, Container, Typography, Button, Breadcrumbs, Grid, Modal, IconButton } from '@mui/material'
 import { projectsData } from '../data/projects'
@@ -10,6 +10,10 @@ const ProjectDetail = () => {
   const navigate = useNavigate()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const project = projectsData.find(p => p.id === Number(id))
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [id])
 
   if (!project) {
     return (
