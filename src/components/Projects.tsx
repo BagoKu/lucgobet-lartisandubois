@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Pagination, Chip } from '@mui/materia
 import { Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
 
-const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs', 'Rénovation']
+const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs']
 const PROJECTS_PER_PAGE = 9
 
 const Projects = () => {
@@ -146,25 +146,27 @@ const Projects = () => {
         </Grid>
 
         {/* Pagination */}
-        <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
-          <Pagination
-            count={totalPages}
-            page={page}
-            onChange={handlePageChange}
-            shape="rounded"
-            color="primary"
-            sx={{
-              '& .MuiPaginationItem-root': {
-                fontWeight: 600,
-                fontSize: '1rem',
-              },
-              '& .Mui-selected': {
-                backgroundColor: 'primary.main',
-                color: 'white',
-              },
-            }}
-          />
-        </Box>
+        {totalPages > 1 && (
+          <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              shape="rounded"
+              color="primary"
+              sx={{
+                '& .MuiPaginationItem-root': {
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                },
+                '& .Mui-selected': {
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                },
+              }}
+            />
+          </Box>
+        )}
       </Container>
     </Box>
   )
