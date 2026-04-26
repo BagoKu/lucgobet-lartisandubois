@@ -78,7 +78,7 @@ const ProjectsSection = () => {
                         size="large"
                         href="/projects"
                     >
-                        Voir toutes nos réalisations
+                        Voir toutes les réalisations
                     </Button>
                 </Box>
             </Container>
