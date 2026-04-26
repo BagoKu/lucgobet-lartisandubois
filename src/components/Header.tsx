@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Box, Button, Container } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import logoImage from '../assets/Logo-site-luc.jpeg'
+import logoImage from '../assets/Logo-site-luc-titre.png'
 
 const Header = () => {
   const navLinks = [
