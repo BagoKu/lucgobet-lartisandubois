@@ -67,7 +67,7 @@ export const projectsData: Project[] = [
         id: 5,
         title: 'Dressing sur Mesure',
         description: "Aménagement d'un dressing complet avec rangements optimisés. Solution sur mesure pour maximiser l'espace disponible.",
-        category: 'Dressing',
+        category: 'Aménagements intérieur',
         coverImage: new URL('../assets/dressing/WhatsApp Image 2025-07-14 at 10.25.21 (1).jpeg', import.meta.url).href,
         images: [
             new URL('../assets/dressing/WhatsApp Image 2025-07-14 at 10.25.21 (1).jpeg', import.meta.url).href,
