@@ -10,7 +10,7 @@ export interface Project {
 export const projectsData: Project[] = [
     {
         id: 1,
-        title: 'Étagère Naruto',
+        title: 'Étagère à thème Fanart Naruto',
         description: "Étagère sur mesure inspirée de l'univers Naruto. Un meuble unique alliant passion et savoir-faire artisanal.",
         category: 'Meubles sur mesure',
         coverImage: new URL('../assets/naruto/naruto-detail4.jpeg', import.meta.url).href,

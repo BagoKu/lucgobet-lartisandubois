@@ -19,7 +19,7 @@ const ProjectsSection = () => {
                         letterSpacing: '-0.015em',
                     }}
                 >
-                    Nos Projets Récents
+                    Les projets récents
                 </Typography>
 
                 <Grid container spacing={3}>
