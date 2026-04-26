@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Box, Button, Container } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import logoImage from '../assets/logluc.png'
+import logoImage from '../assets/Logo-site-luc-titre.png'
 
 const Header = () => {
   const navLinks = [
@@ -19,7 +19,7 @@ const Header = () => {
                 src={logoImage}
                 alt="Logo Luc Gobet"
                 sx={{
-                  height: 40,
+                  height: 60,
                   width: 'auto',
                   mr: 1.5,
                   cursor: 'pointer',
