@@ -47,7 +47,7 @@ const Hero = () => {
                                 fontWeight: 400,
                             }}
                         >
-                            Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. Je suis à votre disposition pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur.
+                            Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. N'hésitez pas à me contacter pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur.
                         </Typography>
                     </Box>
                     <Button
