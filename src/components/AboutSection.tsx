@@ -50,9 +50,7 @@ const AboutSection = () => {
                                     Je m'entretiens personnellement avec chacun de mes clients afin de voir leurs besoins, leurs idées et d'étudier leurs demandes.</p>
 
 
-                                <p>Je vous propose de découvrir sur ce site les différentes ouvrage en bois que ce soit pour l'intérieur de votre habitation ou à l'extérieur de celle-ci
-                                    N'y voyez pas là un catalogue mais plutôt une source d'inspiration.
-                                    Cela vous donnera peut-être des idées des envies de projet et si vous avez besoin de concrétiser vos souhaits n'hésitez pas à me contacter.</p>                          </Typography>
+                                <p>Je vous propose de découvrir sur ce site quelques différents ouvrages et réalisations en bois et matériaux associés de ma conception. N'y voyez pas là un catalogue mais plutôt une source d'inspiration. Cela vous donnera peut-être des idées des envies de projet. Si vous désirez les concrétiser contactez-moi.</p>                          </Typography>
                         </Box>
                     </Grid>
                 </Grid>
