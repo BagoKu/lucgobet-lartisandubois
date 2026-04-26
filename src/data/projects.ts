@@ -78,16 +78,15 @@ export const projectsData: Project[] = [
     },
     {
         id: 6,
-        title: 'Meuble Sous Toit',
+        title: 'Meuble penderie sous-pente',
         description: "Création d'un meuble sous pente pour exploiter au mieux l'espace disponible. Rangements pratiques et esthétiques.",
         category: 'Meubles sur mesure',
-        coverImage: new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01 (1).jpeg', import.meta.url).href,
+        coverImage: new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01.jpeg', import.meta.url).href,
         images: [
-            new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01 (1).jpeg', import.meta.url).href,
+            new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01.jpeg', import.meta.url).href,
             new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.29.53.jpeg', import.meta.url).href,
             new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.29.54.jpeg', import.meta.url).href,
             new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01 (1).jpeg', import.meta.url).href,
-            new URL('../assets/meubleSousToit/WhatsApp Image 2025-07-14 at 10.30.01.jpeg', import.meta.url).href,
         ],
     },
     {
