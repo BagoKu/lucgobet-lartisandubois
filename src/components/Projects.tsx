@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Pagination, Chip } from '@mui/materia
 import { Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
 
-const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs', 'Rénovation']
+const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Aménagement intérieur', 'Aménagements extérieurs', 'Rénovation']
 const PROJECTS_PER_PAGE = 9
 
 const Projects = () => {
