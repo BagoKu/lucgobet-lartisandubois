@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Box, Container, Grid, Typography, Pagination, Chip } from '@mui/material'
+import { Box, Container, Grid, Typography, Pagination, Chip, Skeleton, Alert } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { projectsData } from '../data/projects'
+import { useProjects } from '../hooks/useProjects'
 
 const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs', 'Rénovation']
 const PROJECTS_PER_PAGE = 9
@@ -9,10 +9,11 @@ const PROJECTS_PER_PAGE = 9
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('Tous')
   const [page, setPage] = useState(1)
+  const { projects, loading, error } = useProjects()
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
-    setPage(1) // Reset to page 1 when filtering
+    setPage(1)
   }
 
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
@@ -21,56 +22,29 @@ const Projects = () => {
   }
 
   const filteredProjects = activeCategory === 'Tous'
-    ? projectsData
-    : projectsData.filter(p => p.category === activeCategory)
+    ? projects
+    : projects.filter(p => p.category === activeCategory)
 
-  // Calculate pagination
   const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE)
   const startIndex = (page - 1) * PROJECTS_PER_PAGE
-  const endIndex = startIndex + PROJECTS_PER_PAGE
-  const currentProjects = filteredProjects.slice(startIndex, endIndex)
-  // For this mock, we'll just show all filtered results or a subset if list is huge.
-  // The design shows 9 items (3x3), which matches our mock data length perfectly.
+  const currentProjects = filteredProjects.slice(startIndex, startIndex + PROJECTS_PER_PAGE)
 
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
-        {/* Header */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography
             variant="h1"
-            sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              fontWeight: 800,
-              color: 'text.primary',
-              mb: 2,
-            }}
+            sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, fontWeight: 800, color: 'text.primary', mb: 2 }}
           >
             Nos Réalisations
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: 'text.secondary',
-              fontSize: '1.125rem',
-              maxWidth: 600,
-              mx: 'auto',
-            }}
-          >
+          <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.125rem', maxWidth: 600, mx: 'auto' }}>
             Découvrez la qualité et la passion de notre savoir-faire à travers nos projets.
           </Typography>
         </Box>
 
-        {/* Filters */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: 1.5,
-            mb: 8,
-          }}
-        >
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1.5, mb: 8 }}>
           {categories.map((category) => (
             <Chip
               key={category}
@@ -83,88 +57,78 @@ const Projects = () => {
                 fontSize: '0.9375rem',
                 height: 40,
                 px: 2,
-                borderRadius: '9999px', // Pill shape
+                borderRadius: '9999px',
                 border: 'none',
                 boxShadow: activeCategory === category ? 'none' : '0 1px 2px rgba(0,0,0,0.05)',
-                '&:hover': {
-                  bgcolor: activeCategory === category ? 'primary.dark' : 'rgba(0,0,0,0.05)',
-                },
+                '&:hover': { bgcolor: activeCategory === category ? 'primary.dark' : 'rgba(0,0,0,0.05)' },
               }}
             />
           ))}
         </Box>
 
-        {/* Grid */}
+        {error && (
+          <Alert severity="error" sx={{ mb: 4 }}>
+            Impossible de charger les projets.
+          </Alert>
+        )}
+
         <Grid container spacing={4}>
-          {currentProjects.map((project) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.id}>
-              <Link to={`/projets/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2,
-                    cursor: 'pointer',
-                    group: 'true',
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      borderRadius: 4, // More rounded as per new design
-                      overflow: 'hidden',
-                      width: '100%',
-                      aspectRatio: '4/3', // Landscape-ish aspect ratio from design
-                      bgcolor: 'grey.100',
-                    }}
-                  >
+          {loading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i}>
+                  <Skeleton variant="rounded" height={240} sx={{ borderRadius: 4 }} />
+                  <Skeleton width="60%" sx={{ mt: 1 }} />
+                  <Skeleton width="40%" />
+                </Grid>
+              ))
+            : currentProjects.map((project) => (
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.id}>
+                  <Link to={`/projets/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <Box
                       sx={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: `url("${project.coverImage}")`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        display: 'flex', flexDirection: 'column', gap: 2, cursor: 'pointer',
+                        transition: 'transform 0.2s',
+                        '&:hover': { transform: 'translateY(-4px)' },
                       }}
-                    />
-                  </Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.125rem', mb: 0.5 }}>
-                      {project.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.875rem' }}>
-                      {project.category}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Link>
-            </Grid>
-          ))}
+                    >
+                      <Box sx={{ borderRadius: 4, overflow: 'hidden', width: '100%', aspectRatio: '4/3', bgcolor: 'grey.100' }}>
+                        <Box
+                          sx={{
+                            width: '100%', height: '100%',
+                            backgroundImage: `url("${project.cover_image_url}")`,
+                            backgroundSize: 'cover', backgroundPosition: 'center',
+                          }}
+                        />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.125rem', mb: 0.5 }}>
+                          {project.title}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.875rem' }}>
+                          {project.category}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Link>
+                </Grid>
+              ))}
         </Grid>
 
-        {/* Pagination */}
-        <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
-          <Pagination
-            count={totalPages}
-            page={page}
-            onChange={handlePageChange}
-            shape="rounded"
-            color="primary"
-            sx={{
-              '& .MuiPaginationItem-root': {
-                fontWeight: 600,
-                fontSize: '1rem',
-              },
-              '& .Mui-selected': {
-                backgroundColor: 'primary.main',
-                color: 'white',
-              },
-            }}
-          />
-        </Box>
+        {!loading && totalPages > 1 && (
+          <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              shape="rounded"
+              color="primary"
+              sx={{
+                '& .MuiPaginationItem-root': { fontWeight: 600, fontSize: '1rem' },
+                '& .Mui-selected': { backgroundColor: 'primary.main', color: 'white' },
+              }}
+            />
+          </Box>
+        )}
       </Container>
     </Box>
   )

@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy:staging": "tsc -b && vite build --mode staging && wrangler deploy --name lucgobet-lartisandubois-staging",
+    "deploy": "tsc -b && vite build --mode production && wrangler deploy --name lucgobet-lartisandubois"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
