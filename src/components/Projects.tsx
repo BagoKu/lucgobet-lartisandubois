@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Pagination, Chip, Skeleton, Alert } f
 import { Link } from 'react-router-dom'
 import { useProjects } from '../hooks/useProjects'
 
-const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Dressing', 'Aménagements extérieurs', 'Rénovation']
+const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Aménagements intérieur', 'Aménagements extérieurs']
 const PROJECTS_PER_PAGE = 9
 
 const Projects = () => {
@@ -37,7 +37,7 @@ const Projects = () => {
             variant="h1"
             sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, fontWeight: 800, color: 'text.primary', mb: 2 }}
           >
-            Nos Réalisations
+            Les réalisations
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.125rem', maxWidth: 600, mx: 'auto' }}>
             Découvrez la qualité et la passion de notre savoir-faire à travers nos projets.

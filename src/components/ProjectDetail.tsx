@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import {
   Box, Container, Typography, Button, Breadcrumbs, Grid,
@@ -13,6 +13,10 @@ const ProjectDetail = () => {
   const navigate = useNavigate()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const { project, loading, notFound } = useProject(Number(id))
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [id])
 
   if (loading) {
     return (
