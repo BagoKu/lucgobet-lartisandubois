@@ -28,7 +28,7 @@ function IntroSection({ visible, introRef, projectRef }: IntroSectionProps) {
     projectRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const paragraphs = (content.intro_text ?? '').split('\n\n').filter(Boolean)
+  const paragraphs = (content.about_text ?? '').split('\n\n').filter(Boolean)
 
   return (
     <div
@@ -37,9 +37,6 @@ function IntroSection({ visible, introRef, projectRef }: IntroSectionProps) {
       style={{ minHeight: '100vh', width: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', scrollSnapAlign: 'start', position: 'relative' }}
     >
       <div className="intro-text">
-        <Typography variant="h2" color="secondary" sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', sm: '2.7rem' }, letterSpacing: 1, mb: 1 }}>
-          {content.intro_title ?? ''}
-        </Typography>
         {paragraphs.map((paragraph, i) => (
           <Typography key={i} sx={{ fontSize: { xs: '1.18rem', sm: '1.25rem' }, mb: 2 }}>
             {paragraph}

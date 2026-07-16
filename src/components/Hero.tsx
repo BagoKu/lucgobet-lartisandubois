@@ -1,7 +1,12 @@
 import { Box, Button, Container, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
+import { useContent } from '../hooks/useContent'
+
+const HERO_SUBTITLE_FALLBACK =
+    "Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. N'hésitez pas à me contacter pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur."
 
 const Hero = () => {
+    const content = useContent()
     return (
         <Box
             sx={{
@@ -47,7 +52,7 @@ const Hero = () => {
                                 fontWeight: 400,
                             }}
                         >
-                            Je suis à votre écoute et à votre disposition pour vous garantir un travail de qualité avec de belles finitions. J'interviens essentiellement auprès des particuliers. N'hésitez pas à me contacter pour tout devis et concrétisation de vos projets bois pour l'intérieur et l'extérieur.
+                            {content.hero_subtitle ?? HERO_SUBTITLE_FALLBACK}
                         </Typography>
                     </Box>
                     <Button
