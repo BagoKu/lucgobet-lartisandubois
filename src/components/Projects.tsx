@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { Box, Container, Grid, Typography, Pagination, Chip, Skeleton, Alert } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useProjects } from '../hooks/useProjects'
+import { useCategories } from '../hooks/useCategories'
 
-const categories = ['Tous', 'Cuisines', 'Meubles sur mesure', 'Aménagements intérieur', 'Aménagements extérieurs']
 const PROJECTS_PER_PAGE = 9
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('Tous')
   const [page, setPage] = useState(1)
   const { projects, loading, error } = useProjects()
+  const { categories: apiCategories } = useCategories()
+  const categories = ['Tous', ...apiCategories.map(c => c.name)]
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
