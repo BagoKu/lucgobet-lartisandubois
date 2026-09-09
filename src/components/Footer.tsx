@@ -34,8 +34,8 @@ const Footer = () => {
                             />
                         </Box>
                         <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 384 }}>
-                            <p>Menuiserie Bois et dérivés. Renovation, fabrication, pose.</p>
-                            Dressing, placard, cuisine, parquet, terrasse, garde corps, palissade, volets, porte, portail.
+                            <p>Menuiserie bois et dérivés. Conception, agencement intérieur, rénovation, fabrication sur mesure, mobilier spécialisé, pose sur mesure. Intérieur et extérieur de l'habitat.</p>
+                            Placards, cuisines, dressings, parquets, escaliers, volets, terrasses, portails, carports, bardages...
                         </Typography>
                     </Grid>
 

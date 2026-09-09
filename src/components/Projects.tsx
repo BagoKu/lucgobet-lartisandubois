@@ -42,7 +42,7 @@ const Projects = () => {
             Les réalisations
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.125rem', maxWidth: 600, mx: 'auto' }}>
-            Découvrez la qualité et la passion de notre savoir-faire à travers nos projets.
+            Découvrez la qualité et la passion de mon savoir-faire à travers mes réalisations.
           </Typography>
         </Box>
 
